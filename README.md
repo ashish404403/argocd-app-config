@@ -6,6 +6,17 @@
     kubectl create namespace argocd
     kubectl apply -n argocd --server-side --force-conflicts -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
+# Argo CD Pwd
+
+    kubectl -n argocd get secret argocd-initial-admin-secret \
+      -o jsonpath="{.data.password}" | base64 -d
+
+    echo
+
+# Argo CD web ui
+
+    kubectl port-forward --address 0.0.0.0 svc/argocd-server -n argocd 8080:443
+    
 # Delete Argo CD namespace
 
     kubectl delete namespace argocd
@@ -22,10 +33,6 @@
     kubectl get application -A
 #
     kubectl get svc -n myapp
-
-# Argo CD web ui
-
-    kubectl port-forward --address 0.0.0.0 svc/argocd-server -n argocd 8080:443
 
 # Access myapp-service
 
