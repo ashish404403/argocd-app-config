@@ -1,8 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
+
 metadata:
   name: myapp-argo-application
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+
 spec:
   project: default
 
@@ -10,13 +14,14 @@ spec:
     repoURL: https://github.com/ashish404403/argocd-app-config.git
     targetRevision: HEAD
     path: dev
-  destination: 
+
+  destination:
     server: https://kubernetes.default.svc
     namespace: myapp
 
   syncPolicy:
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true
 
     automated:
       selfHeal: true
