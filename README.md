@@ -1,4 +1,9 @@
+# Deploy
     kubectl apply -f https://raw.githubusercontent.com/ashish404403/argocd-app-config/refs/heads/main/application.yaml
+    
+# Delete
+    kubectl delete -f https://raw.githubusercontent.com/ashish404403/argocd-app-config/refs/heads/main/application.yaml
+
 #
     kubectl get pods -A
 #
