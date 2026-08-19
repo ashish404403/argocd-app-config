@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: ashish403/go-cicd:1.0
+        image: ashish403/php-cicd:latest
         ports:
         - containerPort: 80
