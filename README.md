@@ -13,3 +13,9 @@
 # Access myapp-service
 
     kubectl port-forward --address 0.0.0.0 -n myapp svc/myapp-service 8088:80
+
+
+# test auto sync by deleting namespace myapp
+
+    kubectl delete namespace myapp
+
