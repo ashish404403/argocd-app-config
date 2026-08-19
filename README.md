@@ -1,3 +1,15 @@
+# Deploy Argo CD
+
+    https://argo-cd.readthedocs.io/en/stable/getting_started/
+
+#
+    kubectl create namespace argocd
+    kubectl apply -n argocd --server-side --force-conflicts -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+# Delete Argo CD namespace
+
+    kubectl delete namespace argocd
+
 # Deploy
     kubectl apply -f https://raw.githubusercontent.com/ashish404403/argocd-app-config/refs/heads/main/application.yaml
     
